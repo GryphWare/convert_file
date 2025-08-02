@@ -14,7 +14,7 @@ text_file = ""
 
 with pdfplumber.open(target_file) as pdf:
     for page in pdf.pages:
-        text = page.extract_text()
+        text = page.extract_text(layout = True)
         if text:
             text_file += text + "\n"
         else:
