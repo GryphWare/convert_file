@@ -1,4 +1,5 @@
 import pdfplumber
+import os
 
 print("nhap ten file co trong duong dan cua ban: ")
 target_file = input()
@@ -21,7 +22,7 @@ with pdfplumber.open(target_file) as pdf:
             text_file += "\n"
 
 #replace .pdf to .txt
-target_file = target_file.replace(".pdf", ".txt")
+target_file = os.path.splitext(target_file)[0] + ".txt"
 print(f"result: {target_file}") #debug
 
 with open(target_file, "w", encoding = "utf-8") as file:
